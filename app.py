@@ -1,15 +1,17 @@
-from flask import Flask
+from flask import Flask, jsonify
+import json
 
-app = Flask(__name__)  # <-- use __name__
+app = Flask(__name__)
+
+@app.route('/api', methods=['GET'])
+def get_data():
+    with open('data.json', 'r') as file:
+        data = json.load(file)
+    return jsonify(data)
 
 @app.route('/')
 def home():
-    return 'Hello World from Neeraj Singh Nayal'
+    return "Hello, Flask with JSON API!"
 
-@app.route('/second')
-def second():
-    return 'Welcome to second page from Neeraj'
-
-
-if __name__ == '__main__':  # <-- use __name__ and __main__
-    app.run()
+if __name__ == '__main__':
+    app.run(debug=True)
