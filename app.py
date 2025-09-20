@@ -11,7 +11,7 @@ def get_data():
 
 @app.route('/')
 def home():
-    return "Hello, Flask with JSON API!"
+    return "Hello from TUTEDUDE_NEW branch!!"
 
 if __name__ == '__main__':
     app.run(debug=True)
